@@ -1,0 +1,14 @@
+//三步翻转法
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        int size = nums.size();
+        
+        k %= size;
+        
+        reverse(nums.begin(), nums.begin() + size - k);
+        reverse(nums.begin() + size - k, nums.end());
+        reverse(nums.begin(), nums.end());
+        
+    }
+};
