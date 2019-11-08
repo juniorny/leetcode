@@ -63,3 +63,31 @@ public:
         return res;
     }
 };
+
+// 回溯算法
+class Solution {
+public:
+    vector<vector<int>> res;
+    
+    vector<vector<int>> subsets(vector<int>& nums) {
+        vector<int> path;
+        dfs(nums, 0, path);
+        
+        return res;
+    }
+    
+    void dfs(vector<int>& nums, int index, vector<int> path)    
+    {
+        if (index == nums.size())
+        {
+            res.push_back(path);
+            return;
+        }
+        //不选，直接进入下一层
+        dfs(nums, index + 1, path);
+        // 选
+        path.push_back(nums[index]);
+        dfs(nums, index + 1, path);
+        path.pop_back();
+    }
+};
